@@ -16,6 +16,13 @@ class PlanetController {
     let listPlanet = await PlanetModel.find();
     return res.status(200).json(listPlanet);
   }
+
+  async findById (req: Request, res: Response) {
+    console.log(req.params.id)
+    const PlanetModel = getModelForClass(Planet);
+    let planet = await PlanetModel.findById(req.params.id);
+    return res.status(200).json(planet);
+  }
 }
 
 export default PlanetController
