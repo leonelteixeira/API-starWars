@@ -23,6 +23,13 @@ class PlanetController {
     let planet = await PlanetModel.findById(req.params.id);
     return res.status(200).json(planet);
   }
+
+  async deleteOne (req: Request, res: Response) {
+    console.log(req.params.id)
+    const PlanetModel = getModelForClass(Planet);
+    let planet = await PlanetModel.deleteOne({ _id: req.params.id });
+    return res.status(204);
+  }
 }
 
 export default PlanetController

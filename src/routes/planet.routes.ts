@@ -7,5 +7,6 @@ const planetController = new PlanetController()
 router.post('/planets', planetController.create)
 router.get('/planets', planetController.list)
 router.get('/planets/:id', planetController.findById)
+router.delete('/planets/:id', planetController.deleteOne)
 
 export default router
