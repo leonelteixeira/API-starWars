@@ -30,6 +30,13 @@ class PlanetController {
     let planet = await PlanetModel.deleteOne({ _id: req.params.id });
     return res.status(204);
   }
+
+  async updateOne (req: Request, res: Response) {
+    console.log(req.params.id)
+    const PlanetModel = getModelForClass(Planet);
+    let planetUpdate = await PlanetModel.findOneAndUpdate({ _id: req.params.id }, { name: req.body.name, climate: req.body.climate, terrain: req.body.terrain }, {returnDocument: 'after'});
+    return res.status(200).json(planetUpdate);
+  }
 }
 
 export default PlanetController
