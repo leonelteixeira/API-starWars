@@ -2,15 +2,15 @@ import { prop } from "@typegoose/typegoose";
 
 class Planet {
   @prop()
-  public name?: string;
+  public name: string;
 
   @prop()
-  public climate?: string;
+  public climate: string;
 
   @prop()
-  public terrain?: string;
+  public terrain: string;
 
-  // @prop()
-  // public moviesAppearance?: string;
+  @prop()
+  public moviesAppearence: string
 }
 export default Planet
