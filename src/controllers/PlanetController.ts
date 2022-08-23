@@ -8,6 +8,11 @@ import axios from 'axios';
 class PlanetController {
   async create (req: Request, res: Response) {
     const PlanetModel = getModelForClass(Planet);
+    const planetExists = await PlanetModel.findOne({name: req.body.name})
+    if (planetExists) {
+      console.log(`Planet ${req.body.name} already exist`)
+      return res.status(400).json({message: `Planet ${req.body.name} already exist`})
+    }
     const response = await axios.get(`http://swapi.dev/api/planets?search=${req.body.name}`)
     const moviesAppearence = response.data.results[0].films.length
     let planetCreated = await PlanetModel.create({ name: req.body.name, climate: req.body.climate, terrain: req.body.terrain, moviesAppearence: moviesAppearence });
