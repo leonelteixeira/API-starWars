@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { getModelForClass } from '@typegoose/typegoose';
 import { Request, Response } from 'express'
-import { getRepository } from 'typeorm'
 import Planet from '../models/Planet'
 import axios from 'axios';
 
